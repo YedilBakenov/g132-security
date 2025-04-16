@@ -1,32 +1,32 @@
 <html lang="en">
-<head>
+<head xmlns:th="http://www.thymeleaf.org">
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
   <title>Please sign in</title>
-  <link href="/default-ui.css" rel="stylesheet" />
+  <div th:insert="links.html"></div>
 </head>
 <body>
-<div class="content">
-  <form method="post" action="/auth">
-    <h2>Please sign in</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 ">
+      <div>
+        <form method="post" action="/auth">
+          <h2>Please sign in</h2>
+          <p>
+            <label for="email" class="screenreader">Email</label>
+            <input class="form-control" type="text" id="email" name="email" placeholder="Email" required autofocus>
+          </p>
+          <p>
+            <label for="password" class="screenreader">Password</label>
+            <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+          </p>
 
-    <p>
-      <label for="email" class="screenreader">Email</label>
-      <input type="text" id="email" name="email" placeholder="Email" required autofocus>
-    </p>
-    <p>
-      <label for="password" class="screenreader">Password</label>
-      <input type="password" id="password" name="password" placeholder="Password" required>
-    </p>
-
-    <input name="_csrf" type="hidden">
-    <button type="submit" class="primary">Sign in</button>
-  </form>
-
-
-
+          <input class="form-control" name="_csrf" type="hidden">
+          <button type="submit" class="btn btn-primary btn-sm">Sign in</button>
+          <a href="/registration" class="btn btn-success btn-sm" type="button"> Sign up </a>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 </html>

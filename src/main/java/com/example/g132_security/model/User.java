@@ -33,7 +33,7 @@ public class User implements UserDetails {
 
     private String phoneNumber;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Permission> permissions;
 
 

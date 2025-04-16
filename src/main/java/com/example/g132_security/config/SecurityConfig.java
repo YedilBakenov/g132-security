@@ -3,6 +3,7 @@ package com.example.g132_security.config;
 import com.example.g132_security.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,13 +14,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-@org.springframework.context.annotation.Configuration
+
+@Configuration
 @EnableMethodSecurity
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class Configuration {
+public class SecurityConfig {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Bean
     public UserDetailsService userService(){
@@ -58,10 +60,5 @@ public class Configuration {
         httpSecurity.logout(lg -> lg.logoutUrl("/log-out").logoutSuccessUrl("/sign-in"));
 
         return httpSecurity.build();
-
-
     }
-
-
-
 }
